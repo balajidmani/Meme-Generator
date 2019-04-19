@@ -1,0 +1,353 @@
+/* Meme Generator common styles ends */
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #111;
+    font-family: 'Lato', sans-serif;
+    color: #FFF;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 13px;
+    vertical-align: baseline;
+    outline: none;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 13px;
+    vertical-align: baseline;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+select::-webkit-inner-spin-button,
+select::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+::-webkit-input-placeholder {
+    font-size: 12px;
+}
+
+::-moz-placeholder {
+    font-size: 12px;
+}
+
+::-ms-input-placeholder {
+    font-size: 12px;
+}
+
+.mg_input,
+.mg_input_small {
+    padding: 5px 10px;
+    font-size: 11px;
+    overflow: hidden;
+    border: none;
+    background: #F6F6F6;
+    border-radius: 3px;
+}
+
+.mg_input_small {
+    padding: 5px;
+    width: 100%;
+}
+
+.mg_position_relative {
+    position: relative;
+}
+
+.mg_overflow_hidden {
+    overflow: hidden;
+}
+
+.mg_display_grid {
+    display: grid;
+}
+
+.mg_width_100percentage {
+    width: 100%;
+}
+
+.mg_hide {
+    display: none !important;
+}
+
+.mg_btn {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #121212;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.mg_btn.active,
+.mg_btn.active:hover {
+    background-color: rgb(255, 152, 0);
+}
+
+.mg_btn.selected,
+.mg_btn.selected:hover {
+    border: 1px solid #29a4cc;
+}
+
+.mg_align_vertical_horizontal_center {
+    display: grid;
+    justify-content: center;
+    align-self: center;
+}
+
+.mg_predefined_font {
+    opacity:0;
+    height:0;
+    width:0;
+    display:inline-block;
+}
+
+.mg_tamil_font {
+    font-family: 'Baloo Thambi', sans-serif;
+}
+
+.mg_carter_one_font{
+    font-family: 'Carter One', sans-serif;
+}
+
+.mg_kaushan_script_font {
+    font-family: 'Kaushan Script', cursive;
+}
+
+.mg_sans_font {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Meme Generator common styles ends */
+
+#meme{
+    border: 2px solid #ffde03;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 600px;
+    width: 600px;
+    margin-top: -300px;
+    margin-left: -300px;
+}
+
+.mg_form {
+    display: grid;
+    overflow: auto;
+    grid-template-rows: 60px auto 1fr;
+    background: #262626;
+    width: 100%;
+}
+
+.mg_title {
+    padding: 20px;
+    background: #161616;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    color: #ffde03;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Germania One', monospace;
+}
+
+.mg_tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    padding: 10px 0;
+    border-bottom: 2px solid rgba(0, 0, 0, .25);
+}
+
+.mg_section_group {
+    border-bottom: 2px solid rgba(0, 0, 0, .25);
+    padding: 10px;
+}
+
+.mg_custom_canvas_size_form {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-row-gap: 10px;
+}
+
+.mg_custom_canvas_size_form .mg_input{
+    padding: 10px;
+}
+
+.mg_select_canvas_size_form {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-row-gap: 10px;
+}
+
+.mg_select_canvas_size_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.mg_select_canvas_size_container .mg_btn {
+    padding: 7px;
+}
+
+.mg_section_group .mg_canvas_caption {
+    font-size: 15px;
+    height: 20px;
+    line-height: 20px;
+    color: #47cf73;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mg_align_vertical_horizontal_center .mg_btn {
+    background-color: #00aeff;
+    min-width: 100px;
+}
+
+.mg_form_caption_group {
+    display: grid;
+    grid-template-columns: 1fr 20px 20px;
+    grid-column-gap: 10px;
+}
+
+.mg_form_options_group {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr 1.1fr 0.9fr;
+    grid-gap: 10px;
+    padding-top: 10px;
+}
+
+.mg_form_options_group * {
+    font-size: 11px;
+    align-self: center;
+    width: 100%;
+}
+
+.mg_remove,
+.mg_toggle {
+    height: 20px;
+    width: 20px;
+    line-height: 17px;
+    text-align: center;
+    font-size: 17px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    align-self: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mg_toggle {
+    background-color: #00aeff;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Meme Generator V2</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Germania+One|Lato:400,900|Lobster" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi|Carter+One|Germania+One|Kaushan+Script|Lato:400,900|Source+Sans+Pro:400,900" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mg_canvas_area mg_position_relative mg_overflow_hidden">
+        <canvas id="meme" width="600" height="600"></canvas>
+
+        <div class="mg_predefined_font mg_tamil_font">.</div>
+        <div class="mg_predefined_font mg_carter_one_font">.</div>
+        <div class="mg_predefined_font mg_kaushan_script_font">.</div>
+        <div class="mg_predefined_font mg_sans_font">.</div>
+    </div>
+    <div class="mg_form">
+        <div class="mg_title">Meme Generator</div>
+        <div class="mg_tabs">
+            <button class="mg_btn active mg_form_tab" id="mg_canvas_tab">Canvas</button>
+            <button class="mg_btn mg_form_tab" id="mg_images_tab">Image</button>
+            <button class="mg_btn mg_form_tab" id="mg_texts_tab">Text</button>
+        </div>
+        <div class="mg_display_grid">
+            <div id="mg_canvas_section" class="mg_form_section">
+                <div class="mg_section_group" style="display:grid;grid-template-columns: 1fr 1fr;grid-column-gap:10px;">
+                    <div class="mg_position_relative" style="height:20px;">
+                        <input type="radio" name="mg_canvas_fomat_radio_button" id="mg_add_predifined_canvas_radio_button" style="position: absolute;left: 10px;cursor:pointer" checked>
+                        <label for="mg_add_predifined_canvas_radio_button" style="position: absolute;left: 35px;cursor:pointer">Predefined canvas</label>
+                    </div>
+                    <div class="mg_position_relative" style="height:20px;">
+                        <input type="radio" name="mg_canvas_fomat_radio_button" id="mg_add_custom_canvas_radio_button" style="position: absolute;left: 10px;cursor:pointer">
+                        <label for="mg_add_custom_canvas_radio_button" style="position: absolute;left: 35px;cursor:pointer">Custom canvas</label>
+                    </div>
+                </div>
+                <div class="mg_section_group mg_custom_canvas_size_form mg_hide" id="mg_custom_canvas_size_form">
+                    <p class="mg_canvas_caption">Enter custom canvas</p>
+                    <input id="mg_canvas_width" class="mg_input" type="number" placeholder="Canvas width" min="0">
+                    <input id="mg_canvas_height" class="mg_input" type="number"
+                        placeholder="Canvas height" min="0">
+                    <div class="mg_align_vertical_horizontal_center">
+                        <button class="mg_btn" id="mg_save_custom_canvas_button">Save</button>
+                    </div>
+                </div>
+                <div class="mg_section_group mg_select_canvas_size_form" id="mg_predefined_canvas_size_form">
+                    <p class="mg_canvas_caption">Select predefined canvas size</p>
+                    <div class="mg_select_canvas_size_container">
+                        <div class="mg_btn mg_template_size">480 X 480</div>
+                        <div class="mg_btn mg_template_size">480 X 520</div>
+                        <div class="mg_btn mg_template_size">480 X 560</div>
+                        <div class="mg_btn mg_template_size">480 X 600</div>
+                        <div class="mg_btn mg_template_size">480 X 640</div>
+                        <div class="mg_btn mg_template_size">480 X 680</div>
+                        <div class="mg_btn mg_template_size">560 X 560</div>
+                        <div class="mg_btn mg_template_size">560 X 600</div>
+                        <div class="mg_btn mg_template_size">560 X 640</div>
+                        <div class="mg_btn mg_template_size">560 X 720</div>
+                        <div class="mg_btn mg_template_size">560 X 760</div>
+                        <div class="mg_btn mg_template_size selected">600 X 600</div>
+                        <div class="mg_btn mg_template_size">600 X 640</div>
+                        <div class="mg_btn mg_template_size">600 X 680</div>
+                        <div class="mg_btn mg_template_size">600 X 720</div>
+                    </div>
+                </div>
+            </div>
+            <div id="mg_images_section" class="mg_form_section mg_hide">
+                <div class="mg_section_group mg_align_vertical_horizontal_center">
+                    <input type="file" id="mg_image_input" accept="image/*" />
+                    <label for="mg_image_input" class="mg_btn">Add image</label>
+                </div>
+                <div id="mg_form_images_container"></div>
+            </div>
+            <div id="mg_texts_section" class="mg_form_section mg_hide">
+                <div class="mg_section_group mg_align_vertical_horizontal_center">
+                    <button class="mg_btn" id="mg_add_text_button">Add text</button>
+                </div>
+                <div id="mg_form_texts_container"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/canvas.js"></script>
+<script type="text/javascript" src="js/texts.js"></script>
+<script type="text/javascript" src="js/images.js"></script>
+
+</html>

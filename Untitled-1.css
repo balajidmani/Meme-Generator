@@ -1,0 +1,248 @@
+html, body {
+    width: 100%;
+    height: 100%
+}
+
+body{
+    background-color: #111;
+    font-family: 'Lato', sans-serif;
+    color: #FFF;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 13px;
+    vertical-align: baseline;
+    outline: none;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 13px;
+    vertical-align: baseline;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+::-webkit-input-placeholder {
+    font-size: 12px;
+}
+
+::-moz-placeholder {
+    font-size: 12px;
+}
+
+::-ms-input-placeholder {
+    font-size: 12px;
+}
+
+.mg_area {
+    position: relative;
+}
+
+.mg_form{
+    display: grid;
+    overflow: auto;
+    grid-template-rows: 60px 62px 1fr;
+    background: #262626;
+}
+
+.mg_title{
+    padding: 20px;
+    background: #161616;
+    font-size: 24px;
+    color: #ffde03;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Germania One', cursive;
+}
+
+.mg_tabs{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, .25);
+}
+
+.mg_sections {
+    display: grid;
+    padding: 0 10px;
+}
+
+.mg_form_section {
+    display: grid;
+    grid-template-rows: 62px 62px 1fr;
+}
+
+.mg_section_group {
+    border-bottom: 2px solid rgba(0, 0, 0, .25);
+    grid-template-columns: 1fr 1fr 1fr;
+    padding:10px 0;
+}
+
+
+.mg_section_add_button_container {
+    display: grid;
+    justify-content: center;
+    align-self: center;
+}
+
+.mg_section_add_button_container .mg_btn {
+    width: 135px;
+    background-color: #00aeff;
+}
+
+.mg_btn {
+    height: 40px;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    padding: 0 5px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border: 1px solid #121212;
+    border-radius: 4px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.mg_section_group .btn{
+    width: 135px;
+    padding: 0 35px;
+    margin: 7px auto;
+    margin-bottom: 5px;
+    background-color: #00aeff;
+}
+.mg_section_group label.btn {
+    height: 38px;
+    font-size: 11px;
+}
+.mg_section_group button.btn:hover{
+    background-color: #00aeff;
+}
+.btn {
+    text-align: center;
+    padding: 0 5px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border: 1px solid #121212;
+    border-radius: 4px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+button.btn:hover {
+    background-color: #404040;
+}
+button.btn.active, button.btn.active:hover {
+    background-color: #e74c3c;
+}
+div.btn.active {
+    border: 1px solid #29a4cc;
+}
+.mg_input, .mg_input_small{
+    margin: 7px 0;
+    padding: 10px;
+    overflow: hidden;
+    border: none;
+    background: #FFF;
+    border-radius: 2px;
+}
+.mg_input_small{
+    width: 10%;
+    margin: 0;
+    padding: 3px;
+}
+.mg_width_100per{
+    width: 80%;
+}
+
+.mg_canvas_caption{
+    height: 20px;
+    line-height:20px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    color: #47cf73;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 60px;
+    margin-bottom: 5px;
+}
+
+.remove, .collapse{
+    height: 20px;
+    width: 20px;
+    line-height: 19px;
+    text-align: center;
+    font-size: 17px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.collapse{
+    right: 40px;
+    background-color: #00aeff;
+}
+
+.mg_hide {
+    display: none;
+}
+
+input[type="file"] {
+    display: none;
+}
+.mg_form_options_group {
+    position: relative;
+    overflow: hidden;
+}
+.mg_form_option{
+    width: 50%;
+    float: left;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+}
+.mg_form_option span{
+    float: left;
+    display: block;
+    width: 60%;
+    text-align: left;
+    word-wrap: break-word;
+}
+.mg_form_option input{
+    width: 30%;
+    margin: 0 5%;
+}
