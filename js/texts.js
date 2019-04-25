@@ -10,16 +10,18 @@ addTextButton.addEventListener('click', function () {
         text: 'Your text',
         width: 100,
         height: 40,
+        textAlign: 'center',
         fontSize: 25,
         fontFamily: 'Source Sans Pro',
         colour: 'yellow',
-        strokeColor: 'black',
+        strokeColour: 'black',
         strokeWidth: 2,
-        backgroundColor: 'none',
+        backgroundColour: 'none',
         positionX: 0,
         positionY: 0
     };
     memeContents.push(textContent);
+
     createText(textContent);
     drawCanvas();
 });
@@ -37,6 +39,12 @@ function createText(textContent) {
             <input type='number' class='mg_input_small' data-property='width' value='${textContent.width}'/>
             <div>Height (px)</div>
             <input type='number' class='mg_input_small' data-property='height' value='${textContent.height}'/>
+            <div>Text align</div>
+            <select data-property='textAlign'>
+                <option value='center' ${ textContent.textAlign === 'center' ? 'selected' : '' }>Center</option>
+                <option value='left' ${ textContent.textAlign === 'left' ? 'selected' : '' }>Left</option>
+                <option value='right' ${ textContent.textAlign === 'right' ? 'selected' : '' }>Right</option>
+            </select>
             <div>Font size (px)</div>
             <input type='number' class='mg_input_small' data-property='fontSize' value='${textContent.fontSize}'/>
             <div>Font family</div>
@@ -78,18 +86,18 @@ function createText(textContent) {
             <input type='number' class='mg_input_small' data-property='strokeWidth' value='${textContent.strokeWidth}'/>
             <div>Background</div>
             <select data-property='backgroundColour'>
-                <option value='none' ${ textContent.backgroundColor === 'none' ? 'selected' : '' }>none</option>
-                <option value='yellow' ${ textContent.backgroundColor === 'yellow' ? 'selected' : '' }>Yellow</option>
-                <option value='#ffc107' ${ textContent.backgroundColor === '#ffc107' ? 'selected' : '' }>Sun Flower</option>
-                <option value='#ff9800' ${ textContent.backgroundColor === '#ff9800' ? 'selected' : '' }>Orange</option>
-                <option value='white' ${ textContent.backgroundColor === 'white' ? 'selected' : '' }>White</option>
-                <option value='#1abc9c' ${ textContent.backgroundColor === '#1abc9c' ? 'selected' : '' }>Green</option>
-                <option value='#03a9f4' ${ textContent.backgroundColor === '#03a9f4' ? 'selected' : '' }>Blue</option>
-                <option value='#00bcd4' ${ textContent.backgroundColor === '#00bcd4' ? 'selected' : '' }>Sky Blue</option>
-                <option value='cyan' ${ textContent.backgroundColor === 'cyan' ? 'selected' : '' }>Cyan</option>
-                <option value='#f44336' ${ textContent.backgroundColor === '#f44336' ? 'selected' : '' }>Red</option>
-                <option value='#e91e63' ${ textContent.backgroundColor === '#e91e63' ? 'selected' : '' }>Pink</option>
-                <option value='black' ${ textContent.backgroundColor === 'black' ? 'selected' : '' }>Black</option>
+                <option value='none' ${ textContent.backgroundColour === 'none' ? 'selected' : '' }>none</option>
+                <option value='yellow' ${ textContent.backgroundColour === 'yellow' ? 'selected' : '' }>Yellow</option>
+                <option value='#ffc107' ${ textContent.backgroundColour === '#ffc107' ? 'selected' : '' }>Sun Flower</option>
+                <option value='#ff9800' ${ textContent.backgroundColour === '#ff9800' ? 'selected' : '' }>Orange</option>
+                <option value='white' ${ textContent.backgroundColour === 'white' ? 'selected' : '' }>White</option>
+                <option value='#1abc9c' ${ textContent.backgroundColour === '#1abc9c' ? 'selected' : '' }>Green</option>
+                <option value='#03a9f4' ${ textContent.backgroundColour === '#03a9f4' ? 'selected' : '' }>Blue</option>
+                <option value='#00bcd4' ${ textContent.backgroundColour === '#00bcd4' ? 'selected' : '' }>Sky Blue</option>
+                <option value='cyan' ${ textContent.backgroundColour === 'cyan' ? 'selected' : '' }>Cyan</option>
+                <option value='#f44336' ${ textContent.backgroundColour === '#f44336' ? 'selected' : '' }>Red</option>
+                <option value='#e91e63' ${ textContent.backgroundColour === '#e91e63' ? 'selected' : '' }>Pink</option>
+                <option value='black' ${ textContent.backgroundColour === 'black' ? 'selected' : '' }>Black</option>
             </select>
             <div>Position X (%)</div>
             <input type='number' class='mg_input_small' data-property='positionX' value='${textContent.positionX}'/>
@@ -104,91 +112,91 @@ function createText(textContent) {
 }
 
 function modifyText(e) {
+    const target = e.target;
     let index = 0;
-    if (e.target && e.target.matches("input[data-property='text']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].text = event.target.value;
+    if (target && target.matches("input[data-property='text']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].text = target.value;
     }
 
-    if (e.target && e.target.matches("input[data-property='width']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].width = parseInt(event.target.value);
+    if (target && target.matches("input[data-property='width']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].width = parseInt(target.value);
     }
 
-    if (e.target && e.target.matches("input[data-property='height']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].height = parseInt(event.target.value);
+    if (target && target.matches("input[data-property='height']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].height = parseInt(target.value);
     }
 
-    if (e.target && e.target.matches("input[data-property='fontSize']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].fontSize = parseInt(event.target.value);
+    if (target && target.matches("input[data-property='fontSize']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].fontSize = parseInt(target.value);
     }
 
-    if (e.target && e.target.matches("select[data-property='fontFamily']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].fontFamily = event.target.value;
+    if (target && target.matches("select[data-property='textAlign']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].textAlign = target.value;
     }
 
-    if (e.target && e.target.matches("select[data-property='colour']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].colour = event.target.value;
+    if (target && target.matches("select[data-property='fontFamily']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].fontFamily = target.value;
     }
 
-    if (e.target && e.target.matches("select[data-property='strokeColour']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].strokeColour = event.target.value;
+    if (target && target.matches("select[data-property='colour']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].colour = target.value;
     }
 
-    if (e.target && e.target.matches("input[data-property='strokeWidth']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].strokeWidth = parseInt(event.target.value);
+    if (target && target.matches("select[data-property='strokeColour']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].strokeColour = target.value;
     }
 
-    if (e.target && e.target.matches("select[data-property='backgroundColour']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].backgroundColour = event.target.value;
+    if (target && target.matches("input[data-property='strokeWidth']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].strokeWidth = parseInt(target.value);
     }
 
-    if (e.target && e.target.matches("input[data-property='positionX']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].positionX = parseInt(event.target.value);
+    if (target && target.matches("select[data-property='backgroundColour']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].backgroundColour = target.value;
     }
 
-    if (e.target && e.target.matches("input[data-property='positionY']")) {
-        index = e.target.parentNode.getAttribute('data-content-index');
-        memeContents[index].positionY = parseInt(event.target.value);
+    if (target && target.matches("input[data-property='positionX']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].positionX = parseInt(target.value);
+    }
+
+    if (target && target.matches("input[data-property='positionY']")) {
+        index = target.parentNode.getAttribute('data-content-index');
+        memeContents[index].positionY = parseInt(target.value);
     }
 
     drawCanvas();
 }
 
-
-textsContianer.addEventListener("keyup", function (e) {
-    modifyText(e);
-});
-
-textsContianer.addEventListener("change", function (e) {
-    modifyText(e);
-});
-
+textsContianer.addEventListener("keyup", debounce(modifyText, 400));
+textsContianer.addEventListener("change", debounce(modifyText, 400));
 textsContianer.addEventListener("click", function (e) {
-    if (e.target && e.target.matches("div.mg_toggle")) {
-        const subOptions = e.target.parentNode.nextElementSibling;
+    const target = e.target;
+    if (target && target.matches("div.mg_toggle")) {
+        const subOptions = target.parentNode.nextElementSibling;
             subOptions.classList.toggle('mg_hide');
-        const collapse = e.target.getAttribute('data-collapse-options');
+        const collapse = target.getAttribute('data-collapse-options');
         if (collapse == 'true') {
-            e.target.innerText = '+';
-            e.target.setAttribute('data-collapse-options', 'false');
+            target.innerText = '+';
+            target.setAttribute('data-collapse-options', 'false');
         } else {
-            e.target.innerText = '-';
-            e.target.setAttribute('data-collapse-options', 'true');
+            target.innerText = '-';
+            target.setAttribute('data-collapse-options', 'true');
         }
     }
 
-    if (e.target && e.target.matches("div.mg_remove")) {
-        const index = e.target.getAttribute('data-content-index');
-        const imageOptionsGroup = e.target.parentNode.parentNode;
+    if (target && target.matches("div.mg_remove")) {
+        const index = target.getAttribute('data-content-index');
+        const imageOptionsGroup = target.parentNode.parentNode;
         imageOptionsGroup.remove();
         memeContents[index] = null;
 

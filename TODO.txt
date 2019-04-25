@@ -1,13 +1,6 @@
-EXTRA THINGS:
-
-    set canvas width and height as image size
-    Handle ratio
-    padding property in text
-    text alignment (left, center, right)
-    position of the content - z-index based canvas render
-
-MAJOR ISSUES:
-
+Issues
     wrap text in the given line height
-    Big blur in image
-    Fill Background colour
+    textAlign properly
+    Filltext properly
+    background colour handling properly
+    Width and position X properly

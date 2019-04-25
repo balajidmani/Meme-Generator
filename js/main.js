@@ -35,6 +35,21 @@ const textsContianer = document.querySelector('#mg_form_texts_container');
 
 const memeContents = [];
 
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
 function hideFormSections() {
     formTabs.forEach(tab => {
         tab.classList.remove('active');
@@ -66,7 +81,6 @@ async function drawCanvas () {
                     ctx.webkitImageSmoothingEnabled = false;
                     ctx.msImageSmoothingEnabled = false;
                     ctx.imageSmoothingEnabled = false;
-                    ctx.imageSmoothingEnabled = false;
                     ctx.drawImage(image, parseInt((canvas.width / 100)  * content.positionX), parseInt((canvas.height / 100)  * content.positionY), parseInt((canvas.width / 100)  * content.width), parseInt((canvas.height / 100)  * content.height));
                     resolve('');
                 };
@@ -77,11 +91,16 @@ async function drawCanvas () {
         } else if (content.type == 'text') {
             ctx.font = 'bold' + ' ' +content.fontSize + 'px' + ' ' + content.fontFamily;
             ctx.fillStyle = content.colour;
-            ctx.textAlign = 'left';
+            ctx.textAlign = content.textAlign;
+            if (content.backgroundColour != 'none') {
+                ctx.fillStyle = content.backgroundColour;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
             ctx.strokeStyle = content.strokeColour;
             ctx.lineWidth = content.strokeWidth;
-            ctx.strokeText(content.text, parseInt((canvas.width / 100)  * content.positionX), ( parseInt((canvas.height / 100)  * content.positionY) + content.height), parseInt((canvas.width / 100)  * content.width), content.height);
-            ctx.fillText(content.text, parseInt((canvas.width / 100)  * content.positionX), ( parseInt((canvas.height / 100)  * content.positionY) + content.height), parseInt((canvas.width / 100)  * content.width), content.height);
+
+            ctx.strokeText(content.text, 100, ( parseInt((canvas.height / 100)  * content.positionY) + content.height), parseInt((canvas.width / 100)  * content.width), content.height);
+            ctx.fillText(content.text,  100, ( parseInt((canvas.height / 100)  * content.positionY) + content.height), parseInt((canvas.width / 100)  * content.width), content.height);
         }
     }
 }
